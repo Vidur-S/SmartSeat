@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Smart Seat Allocation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2>Smart Seat Allocation</h2>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <section class="hero-section">
+            <h1>Training Session Dashboard</h1>
+            <p>Assign participants while preventing overbooking, duplicate allocations and department limit violations.</p>
+        </section>
+
+        <section class="form-section">
+            <h2>Assign Participant</h2>
+
+            <form id="allocationForm">
+                <div class="form-grid">
+                    <div>
+                        <label>Participant Full Name</label>
+                        <input type="text" id="participantName" placeholder="Example: Sarah Mkhize" required>
+                    </div>
+
+                    <div>
+                        <label>Employee ID</label>
+                        <input type="text" id="employeeId" placeholder="Example: EMP001" required>
+                    </div>
+
+                    <div>
+                        <label>Department</label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="Division A">Division A</option>
+                            <option value="Division B">Division B</option>
+                            <option value="Division C">Division C</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Training Session</label>
+                        <select id="session" required>
+                            <option value="">Select Session</option>
+                            <option value="Morning">Morning: 09:00 - 10:30</option>
+                            <option value="Midday">Midday: 11:00 - 12:30</option>
+                            <option value="Afternoon">Afternoon: 13:00 - 14:30</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Assign Participant</button>
+            </form>
+
+            <p id="feedbackMessage"></p>
+        </section>
+
+        <section class="summary-section">
+            <h2>Session Capacity Overview</h2>
+
+            <div class="session-grid" id="sessionCards">
+                <!-- JavaScript will load session cards here -->
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>Allocated Participants</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Participant</th>
+                        <th>Department</th>
+                        <th>Session</th>
+                        <th>Time Slot</th>
+                    </tr>
+                </thead>
+                <tbody id="participantTable">
+                    <!-- JavaScript will load participants here -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
