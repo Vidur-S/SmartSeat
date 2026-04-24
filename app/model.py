@@ -27,7 +27,6 @@ class Session(db.Model):
     start_time   = db.Column(db.Time, nullable=False)   # Time only — not full DateTime
     end_time     = db.Column(db.Time, nullable=False)
 
-  
 
 
     # Convenience — how many seats remain
@@ -40,10 +39,6 @@ class Session(db.Model):
 
     def __repr__(self):
         return f"<Session {self.session_name}>"
-
-
-
-
    
 class Coordinator(db.Model):
     """
